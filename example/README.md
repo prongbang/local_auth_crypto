@@ -1,6 +1,6 @@
-# local_auth_plus_example
+# local_auth_crypto_example
 
-Demonstrates how to use the local_auth_plus plugin.
+Demonstrates how to use the local_auth_crypto plugin.
 
 ## Getting Started
 

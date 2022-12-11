@@ -1,4 +1,4 @@
-group 'com.prongbang.local_auth_plus'
+group 'com.prongbang.local_auth_crypto'
 version '1.0-SNAPSHOT'
 
 buildscript {

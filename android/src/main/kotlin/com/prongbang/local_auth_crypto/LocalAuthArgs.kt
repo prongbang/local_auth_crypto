@@ -1,4 +1,4 @@
-package com.prongbang.local_auth_plus
+package com.prongbang.local_auth_crypto
 
 object LocalAuthArgs {
     const val BIO_PAYLOAD = "payload"

@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:local_auth_plus/local_auth_plus.dart';
+import 'package:local_auth_crypto/local_auth_crypto.dart';
 
-/// An implementation of [LocalAuthPlus] that uses method channels.
-class MethodChannelLocalAuthPlus extends LocalAuthPlus {
+/// An implementation of [LocalAuthCrypto] that uses method channels.
+class MethodChannelLocalAuthCrypto extends LocalAuthCrypto {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
-  final methodChannel = const MethodChannel('local_auth_plus');
+  final methodChannel = const MethodChannel('local_auth_crypto');
 
   @override
   Future<String?> encrypt(String payload) async {

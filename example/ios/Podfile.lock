@@ -1,13 +1,13 @@
 PODS:
   - Flutter (1.0.0)
-  - local_auth_plus (1.0.0):
+  - local_auth_crypto (1.0.0):
     - Flutter
     - SecureBiometricSwift (~> 0.0.2)
   - SecureBiometricSwift (0.0.2)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - local_auth_plus (from `.symlinks/plugins/local_auth_plus/ios`)
+  - local_auth_crypto (from `.symlinks/plugins/local_auth_crypto/ios`)
 
 SPEC REPOS:
   trunk:
@@ -16,12 +16,12 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  local_auth_plus:
-    :path: ".symlinks/plugins/local_auth_plus/ios"
+  local_auth_crypto:
+    :path: ".symlinks/plugins/local_auth_crypto/ios"
 
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  local_auth_plus: c9f607c817a21521e9db0bf440073e4c25419e98
+  local_auth_crypto: 3ee858ca5d40c9da56dcd1fe8d814e92438a9371
   SecureBiometricSwift: f8a373c07fb46c9ca1b2b53be51a485d2828a3d8
 
 PODFILE CHECKSUM: ef19549a9bc3046e7bb7d2fab4d021637c0c58a3

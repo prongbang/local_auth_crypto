@@ -1,23 +1,23 @@
-import 'local_auth_plus_method_channel.dart';
+import 'local_auth_crypto_method_channel.dart';
 import 'model/biometric_prompt_info.dart';
 
 export 'model/biometric_prompt_info.dart';
 
-abstract class LocalAuthPlus {
+abstract class LocalAuthCrypto {
   /// Constructs a LocalAuthPlus.
-  LocalAuthPlus() : super();
+  LocalAuthCrypto() : super();
 
-  static LocalAuthPlus _instance = MethodChannelLocalAuthPlus();
+  static LocalAuthCrypto _instance = MethodChannelLocalAuthCrypto();
 
-  /// The default instance of [LocalAuthPlus] to use.
+  /// The default instance of [LocalAuthCrypto] to use.
   ///
-  /// Defaults to [MethodChannelLocalAuthPlus].
-  static LocalAuthPlus get instance => _instance;
+  /// Defaults to [MethodChannelLocalAuthCrypto].
+  static LocalAuthCrypto get instance => _instance;
 
   /// Platform-specific implementations should set this with their own
-  /// platform-specific class that extends [LocalAuthPlus] when
+  /// platform-specific class that extends [LocalAuthCrypto] when
   /// they register themselves.
-  static set instance(LocalAuthPlus instance) {
+  static set instance(LocalAuthCrypto instance) {
     _instance = instance;
   }
 

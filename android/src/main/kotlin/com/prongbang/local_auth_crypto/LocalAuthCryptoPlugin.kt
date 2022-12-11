@@ -1,4 +1,4 @@
-package com.prongbang.local_auth_plus
+package com.prongbang.local_auth_crypto
 
 import android.util.Log
 import androidx.annotation.NonNull
@@ -16,13 +16,13 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
-class LocalAuthPlusPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
+class LocalAuthCryptoPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     private lateinit var channel: MethodChannel
     private val cryptography: Cryptography = BiometricCryptography.newInstance()
     private var activity: FragmentActivity? = null
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "local_auth_plus")
+        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "local_auth_crypto")
         channel.setMethodCallHandler(this)
     }
 

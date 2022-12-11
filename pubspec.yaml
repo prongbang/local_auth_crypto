@@ -1,10 +1,10 @@
-name: local_auth_plus
+name: local_auth_crypto
 description: Android and iOS devices to allow Local Authentication + Cryptography via Biometric.
-version: 1.0.1
-homepage: https://github.com/prongbang/local_auth_plus
+version: 1.0.0
+homepage: https://github.com/prongbang/local_auth_crypto
 
 environment:
-  sdk: '>=2.16.2 <3.0.0'
+  sdk: '>=2.18.0 <3.0.0'
   flutter: ">=2.5.0"
 
 dependencies:
@@ -34,10 +34,10 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.prongbang.local_auth_plus
-        pluginClass: LocalAuthPlusPlugin
+        package: com.prongbang.local_auth_crypto
+        pluginClass: LocalAuthCryptoPlugin
       ios:
-        pluginClass: LocalAuthPlusPlugin
+        pluginClass: LocalAuthCryptoPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

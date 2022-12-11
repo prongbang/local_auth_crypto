@@ -1,6 +1,6 @@
-# local_auth_plus
+# local_auth_crypto
 
-[![pub package](https://img.shields.io/pub/v/local_auth_plus.svg)](https://pub.dartlang.org/packages/local_auth_plus)
+[![pub package](https://img.shields.io/pub/v/local_auth_crypto.svg)](https://pub.dartlang.org/packages/local_auth_crypto)
 
 Android and iOS devices to allow Local Authentication + Cryptography via Biometric.
 
@@ -11,13 +11,13 @@ Android and iOS devices to allow Local Authentication + Cryptography via Biometr
 #### New instance
 
 ```dart
-final localAuthPlus = LocalAuthPlus.instance;
+final localAuthCrypto = LocalAuthCrypto.instance;
 ```
 
 #### Encrypt
 
 ```dart
-await localAuthPlus.encrypt(message);
+await localAuthCrypto.encrypt(message);
 ```
 
 ### PromptInfo
@@ -33,15 +33,15 @@ BiometricPromptInfo(
 ### Decrypt
 
 ```dart
-await localAuthPlus.authenticate(promptInfo, cipherText);
+await localAuthCrypto.authenticate(promptInfo, cipherText);
 ```
 
 ## Getting started
 
-It is really easy to use! You should ensure that you add the `local_auth_plus` as a dependency in your flutter project.
+It is really easy to use! You should ensure that you add the `local_auth_crypto` as a dependency in your flutter project.
 
 ```yaml
-local_auth_plus: "^1.0.1"
+local_auth_crypto: "^1.0.0"
 ```
 
 ## Usage
@@ -51,23 +51,23 @@ local_auth_plus: "^1.0.1"
 - Encrypt
 
 ```dart
-final localAuthPlus = LocalAuthPlus.instance;
+final localAuthCrypto = localAuthCrypto.instance;
 
 final message = 'TOKEN';
-final cipherText = await localAuthPlus.encrypt(message);
+final cipherText = await localAuthCrypto.encrypt(message);
 ```
 
 - Decrypt
 
 ```dart
-final localAuthPlus = LocalAuthPlus.instance;
+final localAuthCrypto = localAuthCrypto.instance;
 
 final promptInfo = BiometricPromptInfo(
   title: 'BIOMETRIC',
   subtitle: 'Please scan biometric to decrypt',
   negativeButton: 'CANCEL',
 );
-final plainText = await localAuthPlus.authenticate(promptInfo, cipherText);
+final plainText = await localAuthCrypto.authenticate(promptInfo, cipherText);
 ```
 
 ### Android
