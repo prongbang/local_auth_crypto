@@ -41,7 +41,7 @@ await localAuthPlus.authenticate(promptInfo, cipherText);
 It is really easy to use! You should ensure that you add the `local_auth_plus` as a dependency in your flutter project.
 
 ```yaml
-local_auth_plus: "^1.0.0"
+local_auth_plus: "^1.0.1"
 ```
 
 ## Usage
