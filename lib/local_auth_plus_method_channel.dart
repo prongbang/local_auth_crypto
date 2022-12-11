@@ -9,23 +9,32 @@ class MethodChannelLocalAuthPlus extends LocalAuthPlus {
   final methodChannel = const MethodChannel('local_auth_plus');
 
   @override
-  Future<String> encrypt(String payload) async {
+  Future<String?> encrypt(String payload) async {
     return await methodChannel.invokeMethod('encrypt', {
       'payload': payload,
     });
   }
 
   @override
-  Future<String> authenticate(
+  Future<String?> authenticate(
     BiometricPromptInfo promptInfo,
     String cipherText,
   ) async {
-    return await methodChannel.invokeMethod('authenticate', {
+    dynamic arguments = {
       'cipherText': cipherText,
-      'title': promptInfo.title,
-      'subtitle': promptInfo.subtitle,
-      'description': promptInfo.description,
-      'negativeButton': promptInfo.negativeButton,
-    });
+    };
+    if (promptInfo.title != null) {
+      arguments['title'] = promptInfo.title;
+    }
+    if (promptInfo.subtitle != null) {
+      arguments['subtitle'] = promptInfo.subtitle;
+    }
+    if (promptInfo.description != null) {
+      arguments['description'] = promptInfo.description;
+    }
+    if (promptInfo.negativeButton != null) {
+      arguments['negativeButton'] = promptInfo.negativeButton;
+    }
+    return await methodChannel.invokeMethod('authenticate', arguments);
   }
 }

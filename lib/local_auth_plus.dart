@@ -21,11 +21,11 @@ abstract class LocalAuthPlus {
     _instance = instance;
   }
 
-  Future<String> encrypt(String payload) {
+  Future<String?> encrypt(String payload) {
     throw UnimplementedError('encrypt() has not been implemented.');
   }
 
-  Future<String> authenticate(
+  Future<String?> authenticate(
     BiometricPromptInfo promptInfo,
     String cipherText,
   ) {

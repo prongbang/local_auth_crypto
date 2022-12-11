@@ -13,9 +13,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _biometricToken = 'BIOMETRIC API FROM SERVER';
-  var _biometricTokenCipherText = '';
-  var _biometricTokenPlainText = '';
+  final String _biometricToken = 'TOKEN FROM SERVER';
+  String? _biometricTokenCipherText = '';
+  String? _biometricTokenPlainText = '';
   final _localAuthPlus = LocalAuthPlus.instance;
 
   @override
@@ -31,21 +31,52 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('LOCAL AUTH PLUS'),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('BIO TOKEN SOURCE: $_biometricToken'),
-            const SizedBox(height: 16),
-            Text('BIO TOKEN CIPHER TEXT: $_biometricTokenCipherText'),
-            const SizedBox(height: 16),
-            Text('BIO TOKEN DECRYPTED: $_biometricTokenPlainText'),
-            TextButton(
-              child: const Text('Decrypt by Biometric'),
-              onPressed: () {
-                _processDecrypt();
-              },
+        body: SafeArea(
+          child: Container(
+            margin: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'TOKEN',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 8),
+                CardBox(content: _biometricToken),
+                const SizedBox(height: 16),
+                Text(
+                  'CIPHER TEXT',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 8),
+                CardBox(content: _biometricTokenCipherText ?? ''),
+                const SizedBox(height: 16),
+                Text(
+                  'PLAIN TEXT',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 8),
+                CardBox(content: _biometricTokenPlainText ?? ''),
+                const SizedBox(height: 46),
+                SizedBox(
+                  width: double.infinity,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          _processDecrypt();
+                        },
+                        icon: const Icon(Icons.fingerprint_outlined),
+                        iconSize: 80,
+                      ),
+                      const Text('Decrypt by Biometric'),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
@@ -64,8 +95,29 @@ class _MyAppState extends State<MyApp> {
     );
     _biometricTokenPlainText = await _localAuthPlus.authenticate(
       promptInfo,
-      _biometricTokenCipherText,
+      _biometricTokenCipherText ?? '',
     );
     setState(() {});
+  }
+}
+
+class CardBox extends StatelessWidget {
+  final String content;
+
+  const CardBox({Key? key, required this.content}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.grey.shade300,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text(content),
+      ),
+    );
   }
 }

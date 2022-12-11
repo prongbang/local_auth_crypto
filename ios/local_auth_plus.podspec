@@ -1,23 +1,22 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint local_auth_plus.podspec` to validate before publishing.
+# Run `pod lib lint local_auth_plus.podspec --verbose --no-clean --allow-warnings` to validate before publishing.
+# Run `pod install --repo-update --verbose` to uppdate new version.
 #
 Pod::Spec.new do |s|
   s.name             = 'local_auth_plus'
-  s.version          = '0.0.1'
-  s.summary          = 'A new Flutter project.'
+  s.version          = '1.0.0'
+  s.summary          = 'Android and iOS devices to allow Local Authentication + Cryptography via Biometric.'
   s.description      = <<-DESC
-A new Flutter project.
+Android and iOS devices to allow Local Authentication + Cryptography via Biometric.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/prongbang/local_auth_plus'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = 'prongbang'
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
-  s.dependency 'Flutter'
-  s.platform = :ios, '9.0'
-
-  # Flutter.framework does not contain a i386 slice.
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
-  s.swift_version = '5.0'
+  s.source_files     = 'Classes/**/*'
+  s.dependency       'Flutter'
+  s.dependency       'SecureBiometricSwift', '~> 0.0.2'
+  s.platform         = :ios, '11.0'
+  s.swift_version    = ["4.0", "4.1", "4.2", "5.0", "5.1", "5.2", "5.3", "5.4", "5.5"]
 end
