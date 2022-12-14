@@ -8,4 +8,5 @@
 class LocalAuthMethod {
     static let ENCRYPT = "encrypt"
     static let AUTHENTICATE = "authenticate"
+    static let EVALUATE_POLICY = "evaluatePolicy"
 }

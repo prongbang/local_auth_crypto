@@ -22,6 +22,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     _processEncrypt();
+    _processCanEvaluatePolicy();
   }
 
   @override
@@ -100,6 +101,12 @@ class _MyAppState extends State<MyApp> {
       _biometricTokenCipherText ?? '',
     );
     setState(() {});
+  }
+
+  void _processCanEvaluatePolicy() async {
+    final status = await _localAuthCrypto
+        .evaluatePolicy('Allow biometric to authenticate');
+    print('status: $status');
   }
 }
 

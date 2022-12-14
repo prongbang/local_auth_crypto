@@ -31,4 +31,10 @@ abstract class LocalAuthCrypto {
   ) {
     throw UnimplementedError('authenticate() has not been implemented.');
   }
+
+  /// Android: Function will always return True
+  /// iOS: Function will return True or False
+  Future<bool?> evaluatePolicy(String reason) {
+    throw UnimplementedError('evaluatePolicy() has not been implemented.');
+  }
 }

@@ -84,6 +84,9 @@ class LocalAuthCryptoPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
                     result.error("E02", "Activity is null", null)
                 }
             }
+            LocalAuthMethod.EVALUATE_POLICY -> {
+                result.success(true)
+            }
             else -> {
                 result.notImplemented()
             }

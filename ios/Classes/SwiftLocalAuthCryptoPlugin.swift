@@ -47,6 +47,19 @@ public class SwiftLocalAuthCryptoPlugin: NSObject, FlutterPlugin {
                 result(nil)
             }
             break
+        case LocalAuthMethod.EVALUATE_POLICY:
+            if args != nil {
+                guard let bioPolicyReason = args![LocalAuthArgs.BIO_POLICY_REASON] else {
+                    result(nil)
+                    return
+                }
+                LocalAuthPolicy.evaluatePolicy(reason: bioPolicyReason) { (status) in
+                    result(status)
+                }
+            } else {
+                result(nil)
+            }
+            break
         default:
             result(nil)
         }

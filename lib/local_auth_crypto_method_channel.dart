@@ -37,4 +37,11 @@ class MethodChannelLocalAuthCrypto extends LocalAuthCrypto {
     }
     return await methodChannel.invokeMethod('authenticate', arguments);
   }
+
+  @override
+  Future<bool?> evaluatePolicy(String reason) async {
+    return await methodChannel.invokeMethod('evaluatePolicy', {
+      'reason': reason,
+    });
+  }
 }

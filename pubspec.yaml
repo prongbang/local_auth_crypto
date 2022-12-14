@@ -1,6 +1,6 @@
 name: local_auth_crypto
 description: Android and iOS devices to allow Local Authentication + Cryptography via Biometric.
-version: 1.0.0
+version: 1.1.0
 homepage: https://github.com/prongbang/local_auth_crypto
 
 environment:
