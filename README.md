@@ -41,7 +41,7 @@ await localAuthCrypto.authenticate(promptInfo, cipherText);
 It is really easy to use! You should ensure that you add the `local_auth_crypto` as a dependency in your flutter project.
 
 ```yaml
-local_auth_crypto: "^1.1.0"
+local_auth_crypto: "^1.1.1"
 ```
 
 ## Usage
