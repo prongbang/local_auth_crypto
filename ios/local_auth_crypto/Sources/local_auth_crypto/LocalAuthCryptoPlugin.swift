@@ -1,27 +1,25 @@
 import Flutter
-import UIKit
 import SecureBiometricSwift
+import UIKit
 
-public class SwiftLocalAuthCryptoPlugin: NSObject, FlutterPlugin {
-    
+@objc(LocalAuthCryptoPlugin)
+public class LocalAuthCryptoPlugin: NSObject, FlutterPlugin {
     private var secureBiometricSwift: SecureBiometricSwift? = nil
-    
+
     init(secureBiometricSwift: SecureBiometricSwift) {
         self.secureBiometricSwift = secureBiometricSwift
     }
-    
+
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "local_auth_crypto", binaryMessenger: registrar.messenger())
-        
         let secureBiometricSwift = LocalSecureBiometricSwift()
-        
-        let instance = SwiftLocalAuthCryptoPlugin(secureBiometricSwift: secureBiometricSwift)
+        let instance = LocalAuthCryptoPlugin(secureBiometricSwift: secureBiometricSwift)
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
-    
+
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         let args = call.arguments as? Dictionary<String, String>
-        
+
         switch call.method {
         case LocalAuthMethod.ENCRYPT:
             if args != nil {
@@ -64,5 +62,4 @@ public class SwiftLocalAuthCryptoPlugin: NSObject, FlutterPlugin {
             result(nil)
         }
     }
-    
 }

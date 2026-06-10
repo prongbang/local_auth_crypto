@@ -8,7 +8,7 @@
 import LocalAuthentication
 
 class LocalAuthPolicy {
-    
+
     static func evaluatePolicy(reason: String, completion: @escaping (Bool) -> ()) {
         let context = LAContext()
 

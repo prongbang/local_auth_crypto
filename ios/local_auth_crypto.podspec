@@ -14,7 +14,7 @@ Android and iOS devices to allow Local Authentication + Cryptography via Biometr
   s.license          = { :file => '../LICENSE' }
   s.author           = 'prongbang'
   s.source           = { :path => '.' }
-  s.source_files     = 'Classes/**/*'
+  s.source_files     = 'Classes/**/*.{h,m,swift}'
   s.dependency       'Flutter'
   s.dependency       'SecureBiometricSwift', '~> 0.0.2'
   s.platform         = :ios, '11.0'
