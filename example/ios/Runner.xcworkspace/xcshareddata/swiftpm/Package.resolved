@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "securebiometricswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/prongbang/SecureBiometricSwift.git",
+      "state" : {
+        "revision" : "ca3c073fbe12bdfc85593efdb655d9b4ff706893",
+        "version" : "0.0.2"
+      }
+    }
+  ],
+  "version" : 2
+}
