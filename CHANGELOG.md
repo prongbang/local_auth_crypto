@@ -1,3 +1,7 @@
+## 1.1.2
+
+* Migrate to Swift Package Manager
+
 ## 1.1.1
 
 * Check has property namespace for Android

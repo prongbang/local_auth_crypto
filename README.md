@@ -24,7 +24,7 @@ Add to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  local_auth_crypto: ^1.1.1
+  local_auth_crypto: ^1.1.2
 ```
 
 Then run:
@@ -131,26 +131,26 @@ import 'package:local_auth_crypto/local_auth_crypto.dart';
 
 class SecureDataManager {
   final localAuthCrypto = LocalAuthCrypto.instance;
-  
+
   Future<void> saveSecureData(String sensitiveData) async {
     try {
       // Encrypt sensitive data
       final cipherText = await localAuthCrypto.encrypt(sensitiveData);
-      
+
       // Save encrypted data to storage
       await saveToSecureStorage(cipherText);
-      
+
       print('Data encrypted and saved successfully');
     } catch (e) {
       print('Encryption failed: $e');
     }
   }
-  
+
   Future<String?> retrieveSecureData() async {
     try {
       // Retrieve encrypted data from storage
       final cipherText = await getFromSecureStorage();
-      
+
       // Create prompt for biometric authentication
       final promptInfo = BiometricPromptInfo(
         title: 'Authentication Required',
@@ -158,13 +158,13 @@ class SecureDataManager {
         negativeButton: 'Cancel',
         description: 'Your biometric data is required to decrypt sensitive information',
       );
-      
+
       // Authenticate and decrypt
       final decryptedData = await localAuthCrypto.authenticate(
         promptInfo,
         cipherText,
       );
-      
+
       return decryptedData;
     } catch (e) {
       print('Decryption failed: $e');
